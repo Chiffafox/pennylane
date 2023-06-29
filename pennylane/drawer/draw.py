@@ -32,6 +32,7 @@ def draw(
     max_length=100,
     show_matrices=True,
     expansion_strategy=None,
+    wire_groups=None,
 ):
     """Create a function that draws the given qnode or quantum function.
 
@@ -204,6 +205,7 @@ def draw(
             max_length=max_length,
             show_matrices=show_matrices,
             expansion_strategy=expansion_strategy,
+            wire_groups=wire_groups,
         )
 
     if expansion_strategy is not None:
@@ -224,6 +226,7 @@ def draw(
             decimals=decimals,
             show_matrices=show_matrices,
             max_length=max_length,
+            wire_groups=wire_groups
         )
 
     return wrapper
@@ -237,6 +240,7 @@ def _draw_qnode(
     max_length=100,
     show_matrices=True,
     expansion_strategy=None,
+    wire_groups=None,
 ):
     @wraps(qnode)
     def wrapper(*args, **kwargs):
@@ -280,6 +284,7 @@ def _draw_qnode(
             decimals=decimals,
             show_matrices=show_matrices,
             max_length=max_length,
+            wire_groups=wire_groups
         )
 
     return wrapper
@@ -291,6 +296,7 @@ def draw_mpl(
     show_all_wires=False,
     decimals=None,
     expansion_strategy=None,
+    wire_groups=None,
     style="black_white",
     **kwargs,
 ):
@@ -496,6 +502,7 @@ def draw_mpl(
             show_all_wires=show_all_wires,
             decimals=decimals,
             expansion_strategy=expansion_strategy,
+            wire_groups=wire_groups,
             style=style,
             **kwargs,
         )
@@ -516,6 +523,7 @@ def draw_mpl(
             wire_order=_wire_order,
             show_all_wires=show_all_wires,
             decimals=decimals,
+            wire_groups=wire_groups,
             style=style,
             **kwargs,
         )
@@ -529,6 +537,7 @@ def _draw_mpl_qnode(
     show_all_wires=False,
     decimals=None,
     expansion_strategy=None,
+    wire_groups=None,
     style="black_white",
     **kwargs,
 ):
@@ -549,6 +558,7 @@ def _draw_mpl_qnode(
             wire_order=_wire_order,
             show_all_wires=show_all_wires,
             decimals=decimals,
+            wire_groups=wire_groups,
             style=style,
             **kwargs,
         )
